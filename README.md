@@ -13,3 +13,35 @@ How to Use POST Method:
  
 a. using require ----> const
 b. using cy.fixture - callback
+
+=======================
+Generate HTML report 
+
+1> install cypress-mochawesome-reporter
+    npm i --save-dev cypress-mochawesome-reporter
+
+2> Edit config file (cypress.config.js by default)
+
+module.exports = defineConfig({
+  reporter: 'cypress-mochawesome-reporter',
+  e2e: {
+    setupNodeEvents(on, config) {
+      require('cypress-mochawesome-reporter/plugin')(on);
+    },
+  },
+});
+
+
+3> Add to cypress/support/e2e.js
+   import 'cypress-mochawesome-reporter/register';
+
+   ===========================
+
+   run cypress hedless mode 
+
+    npx cypress run
+
+    run cypress with cypress automated cypress launch 
+    npm run cypress:open
+
+    ========================
